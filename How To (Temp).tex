@@ -1,0 +1,79 @@
+%% Template for ENG 401 reports
+%% by Robin Turner
+%% Adapted from the IEEE peer review template
+%% https://www.overleaf.com/latex/templates/latex-template-for-technical-report/qtznkrpkjybm
+
+\documentclass[peerreview]{IEEEtran}
+\usepackage{cite}                    % Tidies up citation numbers.
+\usepackage{url}                     % Provides better formatting of URLs.
+\usepackage[utf8]{inputenc}          % Allows Turkish characters.
+\usepackage{booktabs}                % Allows the use of \toprule, \midrule and \bottomrule in tables for horizontal lines
+\usepackage{graphicx}
+\usepackage{float}
+
+%In the preamble section include the arabtex and utf8 packages
+\usepackage{arabtex}
+\usepackage{utf8}
+
+% https://tex.stackexchange.com/questions/3033/forcing-linebreaks-in-url
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+\hyphenation{op-tical net-works semi-conduc-tor} % Corrects some bad hyphenation 
+
+\begin{document}
+% \begin{titlepage}
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{An Easy Approach to Technical Writing}
+
+% author names and affiliations
+\author{Ahmed Waleed \\
+Co-authors: Amr El Begawy, Marwan Ashraf \\
+Department of Computer Engineering\\
+Alexandria University\\
+}
+\date{December 29, 2019}
+
+% make the title area
+\maketitle
+\tableofcontents
+\listoffigures
+\listoftables
+% \end{titlepage}
+
+\IEEEpeerreviewmaketitle
+
+\begin{abstract}
+% How to Write an Abstract for a Research Paper: https://youtu.be/JMEnRBss6V4
+% Motivation
+Technical reports are usually written according to general standards, corporate design standards of the current university or company, logical rules, and practical experiences.
+% Problems
+These rules are not known well enough among writing engineers and technicians. Therefore, this summary intends to help you create technical reports.
+    Such an interesting topic, many students struggle to get started with.
+% Methods
+    Using rules and guidelines contained, you will be introduced to all the
+    basic technical writing concepts.
+\end{abstract}
+
+\section{Technical Reports Writing\cite{Lec1}}
+    
+\subsection{Subsection}
+
+\begin{thebibliography}{1}
+
+\bibitem{Lec1}``Technical Reports Writing,''\\ Dr. Nagia Ghanem, 2019. [Lecture]: \url{http://bit.ly/Lec1_TW}.
+\bibitem{Lec2}``The Writing Process,''\\ Dr. Nagia Ghanem, 2019. [Lecture]: \url{http://bit.ly/Lec2_TW}.
+\bibitem{Lec3}``Document Editing I,''\\ Dr. Nagia Ghanem, 2019. [Lecture]: \url{http://bit.ly/Lec3_TW}.
+\bibitem{Lec4}``Document Editing II,''\\ Dr. Nagia Ghanem, 2019. [Lecture]: \url{http://bit.ly/Lec4_TW}.
+\bibitem{Lec5}``CVs and Covering Letters,''\\ Dr. Nagia Ghanem, 2019. [Lecture]: \url{http://bit.ly/Lec5_TW}.
+\bibitem{Lec6}``Collaborative Writing,''\\ Dr. Nagia Ghanem, 2019. [Lecture]: \url{http://bit.ly/Lec6_TW}.
+\bibitem{Lec7}``Instructions and Manuals,''\\ Dr. Nagia Ghanem, 2019. [Lecture]: \url{http://bit.ly/Lec7_TW}.
+\bibitem{Lec8}``Oral Presentations,''\\ Dr. Nagia Ghanem, 2019. [Lecture]: \url{http://bit.ly/Lec8_TW}.
+\\[-1mm]
+\bibitem{LecB}``Writing A Good Technical Paper,''\\ Dr. Moustafa Youssef, 2019. [Lecture]: \url{http://bit.ly/LecB_TW}.
+\\[-1mm]
+\bibitem{reference}``How to Write Technical Reports,'' Springer, Heike Hering, 2019. \\[0mm] [E-book]: \url{https://doi.org/10.1007/978-3-662-58107-0}.
+
+\end{thebibliography}
+
+\end{document}

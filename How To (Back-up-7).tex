@@ -1,0 +1,604 @@
+%% Compile using pdflatex engine, TeX 2015 distro.
+%% Template for ENG 401 reports
+%% by Robin Turner
+%% Adapted from the IEEE peer review template
+%% https://www.overleaf.com/latex/templates/latex-template-for-technical-report/qtznkrpkjybm
+
+\documentclass[peerreview]{IEEEtran}
+\usepackage{cite}                    % Tidies up citation numbers.
+\usepackage{url}                     % Provides better formatting of URLs.
+\usepackage{booktabs}                % Allows the use of \toprule, \midrule and \bottomrule in tables for horizontal lines
+
+\usepackage{graphicx}   % -> includes pngs
+\usepackage{float}      % -> adds tables
+
+% https://tex.stackexchange.com/questions/120291/arabic-in-latex
+\usepackage{arabtex}
+\usepackage{utf8}
+
+% https://tex.stackexchange.com/questions/101964/change-font-size-in-arabtex-package
+%%% from Uxnsh.fd
+\DeclareFontFamily{U}{xnsh}{}%
+
+\DeclareFontShape{U}{xnsh}{m}{n}{%                                   
+   <-6> sfixed * [6.0] xnsh14
+      <6-10> s * [1.20] xnsh14
+         <10><10.95><12><14.4><17.28><20.74><24.88> s * [1.20] xnsh14
+         }{}
+
+\DeclareFontShape{U}{xnsh}{bx}{n}{%
+   <-6> sfixed * [6.0] xnsh14bf
+   <6-10> s * [1.20] xnsh14bf
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * [1.20] xnsh14bf
+}{}
+%%% end of added code
+
+% https://tex.stackexchange.com/questions/3033/forcing-linebreaks-in-url
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+\hyphenation{op-tical net-works semi-conduc-tor} % Corrects some bad hyphenation 
+
+\begin{document}
+
+%start encoding to Unicode
+%Note that your layout must support Arabic text when compiling
+\setcode{utf8}
+%To start typing in Arabic use the command arabtext
+
+% \begin{titlepage}
+% paper title
+% can use line-breaks \\ within to get better formatting as desired
+\title{An Easy Approach to Technical Writing}
+
+% author names and affiliations
+\author{Ahmed Waleed \\
+Co-author: Amr El Begawy\\
+Department of Computer Engineering\\
+Alexandria University\\
+}
+\date{December 29, 2019}
+
+% make the title area
+\maketitle
+\tableofcontents
+\listoffigures
+\listoftables
+% \end{titlepage}
+
+\IEEEpeerreviewmaketitle
+
+\begin{abstract}
+% How to Write an Abstract for a Research Paper: https://youtu.be/JMEnRBss6V4
+% Motivation
+Technical reports are usually written according to general standards, corporate design standards of the current university or company, logical rules, and practical experiences.
+% Problems
+These rules are not known well enough among writing engineers and technicians. Therefore, this summary intends to help you create technical reports.
+    Such an interesting topic, many students struggle to get started with.
+% Methods
+    Using rules and guidelines contained, you will be introduced to all the
+    basic technical writing concepts.
+\end{abstract}
+
+\section{Technical Reports Writing\ \cite{Lec1}}
+Technical writing is a style of formal writing used in many fields to explain technology and related ideas to:
+\begin{itemize}
+\item Specific technical, general technical or non-technical audiences.
+\end{itemize}
+
+\subsection{Characteristics of Good Technical Writing}
+
+% https://www.overleaf.com/learn/latex/Text_alignment
+\begin{flushright}
+    \begin{tabular}{|p{1.4cm} p{0.1cm} p{5.5cm}|}
+        \hline
+        \multicolumn{3}{c}{}\\[-1em]
+        Accurate   &: & conforms to truth or fact.\\
+        Clear      &: & simple and direct sentences.\\
+        Concise    &: & use of a minimum of words.\\
+        Coherent   &: & easy-to-follow line of thinking.\\
+        Accessible &: & consists of small independent sections.\\
+        \multicolumn{3}{c}{}\\[-1em]
+        \hline
+    \end{tabular}
+\end{flushright}
+
+\subsection{Converting to Technical Writing\ \cite{Style_Reference}}
+Suppose you are writing a report where you may not use ``I'', or you are writing about a sentence subject that can not actually do anything. What to do when the passive voice is the best, most natural choice?
+The answer lies in writing direct sentences—in passive voice—that have simple subjects and verbs.
+
+% https://www.overleaf.com/learn/latex/Text_alignment
+\begin{flushright}
+    \small
+    \begin{tabular}{|p{3.41cm} p{0.2cm} p{3.4cm}|}
+        \hline
+        \multicolumn{3}{c}{}\\[-3mm]
+        I conducted a tensile test at room temperature because & $\rightarrow$ &  A tensile test was conducted.\\
+        I needed to find out a baseline \ for \ tensile \ strength. & $\rightarrow$ &  Baseline tensile strength was established.\\
+        I followed ASTM specification E8M for testing. & $\rightarrow$ &  ASTM Specification E8M was followed.\\
+        \multicolumn{3}{c}{}\\[-3.5mm]
+        \hline
+    \end{tabular}
+    \\[+1mm]
+    Using passive voice does not have to create ambiguity.
+\end{flushright}
+
+\section{The Writing Process\ \cite{Lec2}}
+Writing a message that is consistently well received can be hard for new writers to achieve. The three part writing process ensures the best outcome each time.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\columnwidth]{Writing-Process} 
+    \caption{The Three-Part Writing Process\cite{lumen_course}}
+\end{figure}
+
+\subsection{Planning}
+The most important part of the process requires a bit of time. This is also the most underused part of the process. When people do not plan thoughtfully, their writing becomes very disorganized. \cite{sethperler_video}
+
+% https://www.overleaf.com/learn/latex/Lists
+\begin{itemize}
+   \item Analyzing Your Audience
+   \begin{itemize}
+     \item identify your readers, their attitudes, and expectations.
+   \end{itemize}
+   \item Analyzing Your Purpose
+   \begin{itemize}
+     \item what do you want them to know or to do? 
+   \end{itemize}
+   \item Generating Ideas about your Topic
+   \begin{itemize}
+     \item asking journalistic questions:
+     \begin{itemize}
+        \item who, what, when, where, why, and how.
+     \end{itemize}
+     \item write down your ideas:
+     \begin{itemize}
+        \item brainstorming or free writing.
+     \end{itemize}
+     \item talking them through:
+     \begin{itemize}
+        \item talking with someone.
+     \end{itemize}
+     \item imagine and visualize:
+     \begin{itemize}
+        \item clustering or branching.
+     \end{itemize}
+   \end{itemize}
+   \item Researching Additional Information
+   \begin{itemize}
+   \item \small{(read)} \normalsize{references,} \small{(interview)} \normalsize{experts,} \small{(distribute)} \normalsize{surveys, or} \small{(conduct)} \normalsize{experiments.}
+   \end{itemize}
+   \item Organizing and Outlining Your Document
+   \begin{itemize}
+     \item \small{(group/order)} \normalsize{items,} \small{(organize)} \normalsize{groups, and} \small{(format)} \normalsize{outline.}
+   \end{itemize}
+   \item Devising a Schedule and a Budget
+   \begin{itemize}
+     \item estimate the length of each task.
+     \item estimate the cost of performing experiments.
+   \end{itemize}
+\end{itemize}
+\vspace{-3mm}
+
+
+\subsection{Writing}
+At this stage of the process, the purpose and organization of your report is already decided. Now you need to craft the words and phrasing for each part of the report. \cite{lumen_course}\\
+
+\subsubsection{Drafting}
+get it on paper in an organized manner. The focus is on expanding your “plan” ideas into sentences and paragraphs, not on perfection. \cite{sethperler_video}
+
+% https://www.overleaf.com/learn/latex/Lists
+\begin{itemize}
+   \item Guidelines
+   \begin{itemize}
+     \item \normalsize{Start} \small{(with the easiest)\normalsize{,} \small{(draft)}} \normalsize{Quickly, Don’t Stop} \small{(to research)\normalsize{.}} 
+   \end{itemize}
+   \item Templates
+   \begin{itemize}
+     \item readers get tired of seeing the same design.
+     \item templates can send the wrong message.
+   \end{itemize}
+   \item Styles
+   \begin{itemize}
+     \item save time, ensure consistency, and are useful in collaborative writing.
+   \end{itemize}
+   \item Language COPS
+   \begin{itemize}
+     \item {\normalsize{C}\small{apitals}\normalsize{,}} 
+           {\normalsize{O}\small{verall appearance}\normalsize{,}}
+           {\normalsize{P}\small{unctuation}\normalsize{, }\small{and}}
+           {\normalsize{S}\small{pelling}\normalsize{.}}
+   \end{itemize}
+\end{itemize}
+
+\subsubsection{Editing\ \cite{Lec3},\ \cite{Lec4}}
+``One of the most important skills a writer can have is the ability to compose clear, complete sentences. The sentence is the basic unit of communication in all forms of English.'' 
+\begin{flushright}
+    \leavevmode\\[-1.5em]
+    \small
+    Funk, McMahan, and Day. Elements of Grammar
+\end{flushright}
+
+\begin{itemize}
+   \item Words, Sentences, Punctuation, and Mechanics.
+\end{itemize}
+
+\begin{flushright}
+    \leavevmode\\[-1.5em]
+    \small
+    (Appendix \ref{App:notes})
+    \vspace{-4mm}
+\end{flushright}
+
+\subsection{Revising}
+Revising is the rearrangement and fine tuning of a fully developed—if not totally completed—draft so that the thesis is aligned with the writer’s purpose. \cite{lumen_course}
+
+% https://www.overleaf.com/learn/latex/Lists
+\begin{itemize}
+   \item Studying the Document by Yourself \small{(let it set)} \normalsize
+   \begin{itemize}
+     \item read it aloud, use checklists, and review a printout.
+   \end{itemize}
+   \item Using Revision Software
+   \begin{itemize}
+     \item spell checkers, grammar checkers and thesauri.
+   \end{itemize} 
+   \item Seeking Help from Someone Else
+   \begin{itemize}
+     \item consider the edits of subject-matter experts.
+   \end{itemize}
+\end{itemize}
+
+\section{CVs and Covering Letters\ \cite{Lec5}}
+\subsection{Curriculum Vitae}
+Curriculum vitae is a Latin expression which can be loosely translated as $the\ course\ of\ my\ life.$
+
+\begin{itemize}
+   \item Importance of CV
+   \begin{itemize}
+     \item CVs are the first introducer to the interviewer.
+   \end{itemize}
+   \item Types of CV
+   \begin{itemize}
+     \item Chronological CV: Education and Training is given importance.
+     \item Functional/Skill based CV: Created with concentrate on skills.
+   \end{itemize} 
+   \item Order of Contents in CV
+\end{itemize}
+
+\vspace{-3mm}
+\begin{figure}[!h]
+% https://tex.stackexchange.com/questions/91566/syntax-similar-to-centering-for-right-and-left
+        \raggedleft
+        \href{https://drive.google.com/open?id=1ILh7lQysitKxvKPl3yuMN7rIz-xaC6AS}
+             {\includegraphics[width=0.7\columnwidth]{Curriculum-Vitae}}
+        \caption{Curriculum Vitae Template\cite{CV_Article}}
+\end{figure}
+
+
+\subsection{Covering letters}
+Cover letters are the first chance you have to impress an employer—they're not just a protective jacket for your CV.
+
+\vspace{-3mm}
+\begin{figure}[!h]
+% https://tex.stackexchange.com/questions/91566/syntax-similar-to-centering-for-right-and-left
+    \raggedleft
+    \href{https://drive.google.com/open?id=1ZIV80fKMFj0VcHHRwVI95Jc00h1-sLmD}
+         {\includegraphics[width=0.7\columnwidth]{Covering-Letter}}
+    \caption{Cover Letter Template\cite{CL_Article}}
+\end{figure}
+\vspace{-2.5mm}
+
+\section{Collaborative Writing\ \cite{Lec6}}
+\subsection{Advantages and Disadvantages of Collaborative Writing}
+\begin{table}[H]
+
+\centering
+% https://texblog.org/2019/06/03/control-the-width-of-table-columns-tabular-in-latex/
+\begin{tabular}{|p{3.5cm}|p{3.5cm}|}
+ \hline
+ \multicolumn{1}{|c|}{Advantages} & \multicolumn{1}{|c|}{Disadvantages}\\
+ \hline\hline
+ $+\ $greater knowledge base & $-\ $disjointed document\\
+ \hline
+ $+\ $greater skills base    & $-\ $inequitable workloads\\
+ \hline
+ $+\ $better idea of the audience & $-\ $interpersonal conflict\\
+ \hline
+ $+\ $improves communication &  $-\ $takes more time\\
+ \hline
+ \multicolumn{1}{c}{} & \multicolumn{1}{c}{} \\[-2mm]
+\end{tabular}
+\smallskip 
+\caption{Pros and Cons of Collaborative Writing}
+\end{table}
+\vspace{-4mm}
+
+\subsection{Patterns of Collaboration}
+Collaborative writing patterns are methods a team uses to coordinate the writing of a collaborative document, according to:
+\begin{itemize}
+   \item Job specialties, stages of the writing process, or sections of the document.
+\end{itemize}
+
+\subsection{Guidelines for Efficient and Productive Meetings}
+A meeting is the coming together of three or more people who share common aims and objectives, and who through the use of verbal and written communication contribute to the objectives being achieved \cite{Meeting_Article}. To conduct a productive meetings:
+
+\begin{itemize}
+   \item Listening effectively
+   \begin{itemize}
+        \item listen for main ideas. don’t get emotionally involved, and provide appropriate feedback.
+   \end{itemize}
+   \item Setting your group's agenda
+   \begin{itemize}
+        \item \small{(choose a)} \normalsize{leader,} \small{(define)} \normalsize{tasks,} \small{(resolve)} \normalsize{conflicts, and} \small{(create)} \normalsize{work schedule.}
+   \end{itemize}
+   \item Conducting efficient face-to-face meetings
+   \begin{itemize}
+        \item \small{(arrive)} \normalsize{on time,} \small{(stick to)} \normalsize{agenda, and} \small{(summarize)} \normalsize{accomplishments.}
+   \end{itemize}
+   \item Communicating diplomatically
+   \begin{itemize}
+        \item \small{(without)} \normalsize{interrupting,} \small{(avoid)} \normalsize{personal remarks, and} \small{(ask)} \normalsize{pertinent questions.}
+   \end{itemize} 
+   \item Critiquing a group member's work
+   \begin{itemize}
+        \item discuss the larger issues first, starting with positives.
+   \end{itemize}
+   \item Communicating electronically
+   \begin{itemize}
+        \item using comment, revision, and highlighting features.
+   \end{itemize} 
+\end{itemize}
+
+\section{Instructions and Manuals\ \cite{Lec7}}
+\subsection{Instructions}
+\begin{table}[H]
+
+\centering
+% https://texblog.org/2019/06/03/control-the-width-of-table-columns-tabular-in-latex/
+\begin{tabular}{|p{1.5cm}|p{4.5cm}|}
+ \hline
+ \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\[-1em]
+ Introduction & Who/Why/When should the task be carried out? What safety measures and items needed? \\
+ \hline
+ \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\[-1em]
+ Step-by-Step Body & Give the right amount of information, don’t confuse steps and feedback statements, and use the imperative mood.\\
+ \hline
+ \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\[-1em]
+ Conclusion & An explanation of how to make sure the reader has followed the instructions correctly, and a troubleshooter guide.\\
+ \hline
+ \multicolumn{1}{c}{} & \multicolumn{1}{c}{} \\[-2mm]
+\end{tabular}
+\smallskip 
+\caption{Drafting Instructions}
+\end{table}
+\vspace{-4mm}
+
+\subsection{Manuals}
+\begin{table}[H]
+
+\centering
+% https://texblog.org/2019/06/03/control-the-width-of-table-columns-tabular-in-latex/
+\begin{tabular}{|p{1.5cm}|p{4.5cm}|}
+ \hline
+ \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\[-1em]
+ Front-matter & Title page, Table of contents, Introduction (Who/When), and Typographical Conventions. \\
+ \hline
+ \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\[-1em]
+ Body & Explain concepts clearly, use simple short imperative sentences, and be informal—if appropriate.\\
+ \hline
+ \multicolumn{1}{|c|}{} & \multicolumn{1}{|c|}{} \\[-1em]
+ Back-matter & Glossary: list of definitions, Index: for most manuals of more than 20 pages, and Appendices.\\
+ \hline
+ \multicolumn{1}{c}{} & \multicolumn{1}{c}{} \\[-2mm]
+\end{tabular}
+\smallskip 
+\caption{Drafting Manuals}
+\end{table}
+\vspace{-4mm}
+
+\section{Oral Presentations\ \cite{Lec8}}
+
+\subsection{Preparing an Oral Presentation}
+\vspace{-3mm}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Preparing-Oral-Presentation}
+    \caption{Preparing Oral Presentation Procedures}
+\end{figure}
+\vspace{-3mm}
+
+
+\subsection{Giving the Oral Presentation}
+\vspace{-3mm}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Giving-Oral-Presentation}
+    \caption{Giving the Oral Presentation Procedures}
+\end{figure}
+\vspace{-3mm}
+
+% https://tex.stackexchange.com/questions/8683/how-do-i-force-a-column-break-in-a-multi-column-page
+\vfill\eject
+
+\subsection{Answering Questions after Presentation}
+\vspace{-3mm}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Answering-Questions}
+    \caption{Answering Questions Procedures}
+\end{figure}
+\vspace{-3mm}
+
+
+% https://tex.stackexchange.com/questions/8683/how-do-i-force-a-column-break-in-a-multi-column-page
+\vfill\eject
+
+\appendices
+\section{Elite Students' Notes} \label{App:notes}
+There are a lot of previous exams available on \href{https://drive.google.com/drive/folders/0B8lyRA5rfGgZYXFsLVZSYlJIQWM?usp=sharing}{\underline{CSED Exams}}, For you to benefit the most from them, solutions to previous exams of Dr. Nagia are provided:
+
+\begin{flushright}
+    \leavevmode\\[-1.5em]
+    \href{https://docs.google.com/document/d/1Y5qmZdFDYHE5ThyHAbgH9ZTh6VpGHEVZWPBRfeGFrjQ/edit?fbclid=IwAR12ECf3oq_gsi1duXE_ja339MjJ5Y7bFQI5lvY3AkGDDsBIWb0rluTXc9o}{\underline{Begawy's attempt}}
+\end{flushright}
+
+\section{Vocabulary}
+
+\begin{table}[H]
+\centering
+% https://texblog.org/2019/06/03/control-the-width-of-table-columns-tabular-in-latex/
+\begin{tabular}{|p{3cm}|p{3cm}|}
+ \hline
+ &\\[-1em]
+ Word & \begin{arabtext} الترجمة \end{arabtext} \\[-1em]
+ \hline\hline
+ &\\[-1em]
+ Accurate & \begin{arabtext} دقيق \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Clear & \begin{arabtext} واضح \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Concise & \begin{arabtext} مختصر \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Coherent & \begin{arabtext} مترابط \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Accessible & \begin{arabtext} سهل الوصول \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Conducted & \begin{arabtext} أجرى ، أدى \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Tensile & \begin{arabtext} شد \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Baseline & \begin{arabtext} حدود \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Ambiguity & \begin{arabtext} غموض ، التباس \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Preliminary & \begin{arabtext} أولي ، تمهيدي \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Attitude & \begin{arabtext} موقف ، سلوك \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Journalistic & \begin{arabtext} صحفي \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Clustering & \begin{arabtext} تجميع \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Branching & \begin{arabtext} تفريع \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Devising & \begin{arabtext} تصميم ، ابتكار \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Tuning & \begin{arabtext} ضبط \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Thesis & \begin{arabtext} أطروحة ، فرضية \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Thesaurus & \begin{arabtext} قاموس \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Loosely & \begin{arabtext} على نحو رخو ، فضفاض \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Course & \begin{arabtext} دورة \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Chronological & \begin{arabtext} ترتيب زمني \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Concentrate & \begin{arabtext} تركيز \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Verbal & \begin{arabtext} شفهي \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Accomplishment & \begin{arabtext} إنجاز \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Pertinent & \begin{arabtext} ذات صلة \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Critiquing & \begin{arabtext} نقد \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Imperative & \begin{arabtext} صيغة الأمر \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Troubleshooter & \begin{arabtext} مكتشف و مصلح أخطاء \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Typographical & \begin{arabtext} مطبعية \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Conventions & \begin{arabtext} اتفاقيات \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Glossary & \begin{arabtext} قائمة مصطلحات \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Index & \begin{arabtext} فهرس \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Appendices & \begin{arabtext} ملاحق \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Plenty & \begin{arabtext} وفرة \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Assess & \begin{arabtext} قدر ، قيم \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Maintain & \begin{arabtext} حافظ علي \end{arabtext} \\[-1em]
+ \hline
+ &\\[-1em]
+ Rehearse & \begin{arabtext} كرر ، تمرن \end{arabtext} \\[-1em]
+ \hline
+ ... & \multicolumn{1}{r}{...} \\
+\end{tabular}
+\smallskip 
+\caption{Translation}
+\end{table}     
+
+% https://tex.stackexchange.com/questions/8683/how-do-i-force-a-column-break-in-a-multi-column-page
+\vfill\eject
+
+\begin{thebibliography}{1}
+
+\bibitem{Lec1}``Technical Reports Writing,''\\ Dr. Nagia Ghanem, 2019. [Lecture]: \url{http://bit.ly/Lec1_TW}.
+\bibitem{Lec2}``The Writing Process,''\\ Dr. Nagia Ghanem, 2019. [Lecture]: \url{http://bit.ly/Lec2_TW}.
+\bibitem{Lec3}``Document Editing I,''\\ Dr. Nagia Ghanem, 2019. [Lecture]: \url{http://bit.ly/Lec3_TW}.
+\bibitem{Lec4}``Document Editing II,''\\ Dr. Nagia Ghanem, 2019. [Lecture]: \url{http://bit.ly/Lec4_TW}.
+\bibitem{Lec5}``CVs and Covering Letters,''\\ Dr. Nagia Ghanem, 2019. [Lecture]: \url{http://bit.ly/Lec5_TW}.
+\bibitem{Lec6}``Collaborative Writing,''\\ Dr. Nagia Ghanem, 2019. [Lecture]: \url{http://bit.ly/Lec6_TW}.
+\bibitem{Lec7}``Instructions and Manuals,''\\ Dr. Nagia Ghanem, 2019. [Lecture]: \url{http://bit.ly/Lec7_TW}.
+\bibitem{Lec8}``Oral Presentations,''\\ Dr. Nagia Ghanem, 2019. [Lecture]: \url{http://bit.ly/Lec8_TW}.
+\\[-1mm]
+\bibitem{LecB}``Writing A Good Technical Paper,''\\ Dr. Moustafa Youssef, 2019. [Lecture]: \url{http://bit.ly/LecB_TW}.
+\\[-1mm]
+\bibitem{reference_springer1}``How to Write Technical Reports,'' Heike Hering, 2019. \\[0mm] [E-book]: \url{https://doi.org/10.1007/978-3-662-58107-0}.
+\bibitem{reference_springer2}``The Craft of Scientific Writing,'' Michael Alley, 2018. \\[0mm] [E-book]: \url{https://doi.org/10.1007/978-1-4419-8288-9}.
+\bibitem{reference_springer3}``User Guides, Manuals, and Technical Writing,'' Wallwork, 2014. \\[0mm] [E-book]: \url{https://doi.org/10.1007/978-1-4939-0641-3}.
+\\[-1mm]
+\bibitem{Bartleby_Reference}``The Elements of Style,'' Bartleby, William Strunk, 1918. \\[0mm] [Online]: \url{https://www.bartleby.com/141/}.
+\bibitem{Style_Reference}``Effective Technical Writing in the Information Age,'' Joe Schall. \\[0mm] [Online]: \url{https://www.e-education.psu.edu/styleforstudents/node/1787/}.
+\\[-1mm]
+\bibitem{lumen_course}``Business Communication Skills for Managers,'' Lumen. \\[0mm] [Online-Course]: \url{http://bit.ly/lumen_course}.
+\\[-1mm]
+\bibitem{CV_Article}``Curriculum Vitae Samples,'' Alison Doyle, 2019. \\[0mm] [Article]: \url{http://bit.ly/CV_Sample}.
+\bibitem{CL_Article}``Cover Letter Examples,'' Alison Doyle, 2019. \\[0mm] [Article]: \url{http://bit.ly/CL_Example}.
+\bibitem{Meeting_Article}``Planning and Structuring Effective Meetings,'' SkillsYouNeed. \\[0mm] [Article]: \url{https://www.skillsyouneed.com/ips/meetings.html}.
+\\[-1mm]
+\bibitem{sethperler_video}``How to Use The Writing Process … In plain English!'' Seth Perler. \\[0mm] [Video]: \url{https://sethperler.com/writing-process/}.
+
+\end{thebibliography}
+
+\end{document}
